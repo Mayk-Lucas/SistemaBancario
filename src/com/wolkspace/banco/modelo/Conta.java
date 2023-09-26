@@ -1,5 +1,7 @@
 package com.wolkspace.banco.modelo;
 
+import com.wolkspace.banco.modelo.excecao.SaldoInsuficienteException;
+
 import java.util.Objects;
 
 public abstract class Conta {
@@ -32,7 +34,7 @@ public abstract class Conta {
         }
 
         if (getSaldoDisponivel() - valor < 0) {
-            throw new IllegalStateException("Saldo insulficiente");
+            throw new SaldoInsuficienteException("Saldo insulficiente");
         }
         saldo = saldo - valor;
     }
